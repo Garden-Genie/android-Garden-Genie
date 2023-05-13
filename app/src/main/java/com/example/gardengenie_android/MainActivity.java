@@ -26,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.imageView);
         btn_picture = findViewById(R.id.btn_picture);
+
+        Button button = findViewById(R.id.initial_intent);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), InitialActivity.class);
+                startActivity(intent);
+            }
+        });
+
         btn_picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
