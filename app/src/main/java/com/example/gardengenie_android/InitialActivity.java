@@ -3,10 +3,12 @@ package com.example.gardengenie_android;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
 import java.util.Locale;
@@ -26,6 +28,13 @@ public class InitialActivity extends AppCompatActivity implements TextToSpeech.O
 
         initial_login = findViewById(R.id.initial_login);
         initial_signup = findViewById(R.id.initial_signup);
+        initial_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

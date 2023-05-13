@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         btn_picture = findViewById(R.id.btn_picture);
 
+        //화면 전환용
+
         Button button = findViewById(R.id.initial_intent);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

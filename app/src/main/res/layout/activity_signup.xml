@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textAlignment="center"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            android:textStyle="bold">
+        </TextView>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp">
+            <TableRow
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="이름"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="33sp">
+                </TextView>
+                <EditText
+                    android:id="@+id/signup_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:ems="10"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/signup_border"
+                    tools:ignore="SpeakableTextPresentCheck">
+                </EditText>
+            </TableRow>
+            <TableRow
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="아이디"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="33sp">
+                </TextView>
+                <EditText
+                    android:id="@+id/signup_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:ems="10"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/signup_border"
+                    tools:ignore="SpeakableTextPresentCheck">
+                </EditText>
+            </TableRow>
+            <TableRow
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="비밀번호"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="33sp">
+                </TextView>
+                <EditText
+                    android:id="@+id/signup_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:ems="10"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/signup_border"
+                    tools:ignore="SpeakableTextPresentCheck">
+                </EditText>
+            </TableRow>
+            <TableRow
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="이메일"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="33sp">
+                </TextView>
+                <EditText
+                    android:id="@+id/signup_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:ems="10"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/signup_border"
+                    tools:ignore="SpeakableTextPresentCheck">
+                </EditText>
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <android.widget.Button
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="90dp"
+                android:layout_marginBottom="30dp"
+                android:paddingLeft="100dp"
+                android:paddingTop="20dp"
+                android:paddingRight="100dp"
+                android:paddingBottom="20dp"
+                android:text="회원가입 하기"
+                android:textSize="30sp"
+                android:background="@drawable/round_button2"
+                android:backgroundTint="#B1BDC9">
+
+            </android.widget.Button>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
