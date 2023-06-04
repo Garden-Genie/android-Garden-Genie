@@ -48,7 +48,7 @@ public class SignupActivity extends AppCompatActivity {
                         && name.length() != 0 && pwd.length() >= 8) {
 
                     retrofit = new Retrofit.Builder()
-                            .baseUrl("http://192.168.0.135:8070")
+                            .baseUrl("baseurl") //ip + 포트번호
                             .addConverterFactory(GsonConverterFactory.create())
                             .build();
 
