@@ -7,6 +7,7 @@
         android:name="android.hardware.camera"
         android:required="true" /> <!-- 오디오 권한 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GardenGenie_android"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
             android:name=".SignupActivity"

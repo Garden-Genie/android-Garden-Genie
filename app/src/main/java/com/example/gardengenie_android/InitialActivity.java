@@ -31,6 +31,9 @@ public class InitialActivity extends AppCompatActivity implements TextToSpeech.O
         initial_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+//                startActivity(intent);
+
                 Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
                 startActivity(intent);
             }
@@ -40,7 +43,7 @@ public class InitialActivity extends AppCompatActivity implements TextToSpeech.O
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void speakOut(){
-        CharSequence text = "가든지니를 이용하기 위해서는 로그인이 필요합니다.";
+        CharSequence text = "가든지니를 이용하기 위해서는 회원가입이 필요합니다. 회원가입을 하시려면 상단 버튼, 로그인을 하시려면 중간 버튼, 비회원으로 이용하시려면 하단 버튼을 클릭해주시거나 원하시는 기능을 말씀해주세요. ";
         tts.setPitch((float) 0.6);
         tts.setSpeechRate((float) 0.1);
         tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "id1");
