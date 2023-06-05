@@ -41,9 +41,11 @@ import android.util.Log;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btn_camera;
-    private ImageView imageView;
     private Bitmap imageBitmap;
     private byte[] imageBytes;
+
+    // imageUrl 변수
+    static String imageUrl;
 
     private static final int REQUEST_IMAGE_CODE = 101;
 
@@ -52,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        imageView = findViewById(R.id.imageView);
         btn_camera = findViewById(R.id.btn_camera);
         btn_camera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,8 +79,6 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQUEST_IMAGE_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             imageBitmap = (Bitmap) extras.get("data");
-            imageView.setImageBitmap(imageBitmap);
-            Log.d("MainActivity", "imageView에 이미지를 설정했습니다.");
 
             // 파일 선택 후 GCS 업로드 작업 시작
             new UploadTask().execute();
@@ -94,7 +93,14 @@ public class MainActivity extends AppCompatActivity {
 //            // HTTP 요청 생성 후 Flask 서버로 전송
 //            new NetworkTask().execute();
 
+            // 이미지 intent
+            Intent intent = new Intent(MainActivity.this, PhotoResultActivity.class);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            intent.putExtra("image", byteArray);
 
+            startActivity(intent);
         }
         else {
             // 사진 촬영이 실패하거나 사용자가 취소한 경우에 대한 처리
@@ -146,12 +152,11 @@ public class MainActivity extends AppCompatActivity {
             Blob blob = bucket.create(imageName, imageData);
 
             // 업로드된 이미지의 URL 가져오기
-            String imageUrl = blob.getMediaLink();
+            imageUrl = blob.getMediaLink();
             System.out.println("이미지 url : " + imageUrl);
 
-            // 이미지 URL을 flask로 전송
-            sendImageUrlToFlask(imageUrl);
-
+//            // 이미지 URL을 flask로 전송
+//            sendImageUrlToFlask(imageUrl);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -203,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 
 //    private class NetworkTask extends AsyncTask<Void, Void, Void> {
 //        @Override

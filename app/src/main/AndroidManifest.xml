@@ -41,6 +41,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".PhotoResultActivity" />
+        <activity android:name=".ExplainActivity" />
+        <activity android:name=".MusicActivity" />
+        <activity android:name=".PoemActivity" />
+        <activity android:name=".ConditionActivity" />
     </application>
 
 </manifest>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".PhotoResultActivity">
+    tools:context=".ExplainActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -27,59 +27,34 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="80dp"
         android:layout_marginTop="10dp"
+        android:gravity="center"
         android:orientation="horizontal">
-        <ImageButton
-            android:id="@+id/btn_explain"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="30dp"
-            android:background="#ffffff"
-            android:scaleType = "fitCenter"
-            android:src="@drawable/ic_explain_button"/>
 
-        <ImageButton
-            android:id="@+id/btn_music"
-            android:layout_weight="1"
+        <ImageView
+            android:id="@+id/img_explain"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="10dp"
-            android:background="#ffffff"
-            android:scaleType = "fitCenter"
-            android:src="@drawable/ic_music_button"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_explain_img" />
+
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="260dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal">
-        <ImageButton
-            android:id="@+id/btn_poem"
-            android:layout_weight="1"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="30dp"
-            android:background="#ffffff"
-            android:scaleType = "fitCenter"
-            android:src="@drawable/ic_poem_button"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:text="설명 듣기 화면" />
 
-        <ImageButton
-            android:id="@+id/btn_condition"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="10dp"
-            android:background="#ffffff"
-            android:scaleType = "fitCenter"
-            android:src="@drawable/ic_condition_button"/>
     </LinearLayout>
 
     <LinearLayout
