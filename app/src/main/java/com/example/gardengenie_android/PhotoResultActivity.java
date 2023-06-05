@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.io.ByteArrayOutputStream;
+
 
 public class PhotoResultActivity extends AppCompatActivity {
 
@@ -28,6 +30,53 @@ public class PhotoResultActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
         imageView.setImageBitmap(bitmap);
+
+        // explain
+        ImageButton btn_explain = (ImageButton) findViewById(R.id.btn_explain);
+        btn_explain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ExplainActivity.class);
+                intent.putExtra("image", byteArray);
+                startActivity(intent);
+            }
+        });
+
+        // music
+        ImageButton btn_music = (ImageButton) findViewById(R.id.btn_music);
+        btn_music.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MusicActivity.class);
+                intent.putExtra("image", byteArray);
+                startActivity(intent);
+            }
+        });
+
+        // poem
+        ImageButton btn_poem = (ImageButton) findViewById(R.id.btn_poem);
+        btn_poem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PoemActivity.class);
+                intent.putExtra("image", byteArray);
+                startActivity(intent);
+            }
+        });
+
+        // condition
+        ImageButton btn_condition = (ImageButton) findViewById(R.id.btn_condition);
+        btn_condition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ConditionActivity.class);
+                intent.putExtra("image", byteArray);
+                startActivity(intent);
+            }
+        });
+
+
+
 
     }
 
