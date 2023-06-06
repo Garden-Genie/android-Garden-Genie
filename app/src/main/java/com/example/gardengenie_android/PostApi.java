@@ -12,12 +12,14 @@ import retrofit2.http.POST;
 
 public interface PostApi {
 
-    @FormUrlEncoded
-    @POST("User")
+
+    @POST("/register")
     Call<User> createPost(
-            @Field("user_name") String user_name,
-            @Field("user_id") String user_id,
-            @Field("user_pwd") String user_pwd,
-            @Field("user_email") String user_email
+            @Body SignupRequest signupRequest
+    );
+
+    @POST("/login")
+    Call<LoginResponse> getLoginResponse(
+            @Body LoginRequest loginRequest
     );
 }

@@ -39,6 +39,14 @@ public class InitialActivity extends AppCompatActivity implements TextToSpeech.O
             }
         });
 
+        initial_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

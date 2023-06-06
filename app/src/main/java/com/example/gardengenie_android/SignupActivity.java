@@ -19,7 +19,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignupActivity extends AppCompatActivity {
-    Retrofit retrofit;
+    private RetrofitClient retrofitClient;
     PostApi postApi;
     Call<List<User>> call;
 
@@ -46,15 +46,20 @@ public class SignupActivity extends AppCompatActivity {
 
                 if (email.length() != 0 && id.length() >= 5
                         && name.length() != 0 && pwd.length() >= 8) {
+                    SignupRequest signupRequest = new SignupRequest(id, name, pwd, email);
 
+<<<<<<< HEAD
                     retrofit = new Retrofit.Builder()
                             .baseUrl("baseurl") //ip + 포트번호
                             .addConverterFactory(GsonConverterFactory.create())
                             .build();
+=======
+                    retrofitClient = RetrofitClient.getInstance();
+                    postApi = RetrofitClient.getRetrofitInterface();
+>>>>>>> 8b46996 ([fix] fix signup with JWT)
 
-                    postApi = retrofit.create(PostApi.class);
 
-                    Call<User> call = postApi.createPost(name, id, pwd, email);
+                    Call<User> call = postApi.createPost(signupRequest);
 
                     Toast.makeText(getApplicationContext(), "회원가입이 원료되었습니다.", Toast.LENGTH_LONG).show();
 
@@ -91,3 +96,8 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8b46996 ([fix] fix signup with JWT)
