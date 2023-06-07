@@ -23,7 +23,7 @@
         android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="'산세베리아' 입니다." />
+        android:text="'포인세티아' 입니다." />
 
     <LinearLayout
         android:layout_width="match_parent"

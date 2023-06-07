@@ -23,7 +23,7 @@
         android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="'산세베리아' 입니다." />
+        android:text="'포인세티아' 입니다." />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,13 +39,19 @@
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_poem_img" />
 
-
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".PoemActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -53,14 +59,15 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:textSize="20sp"
-            android:text="시 추천 화면" />
+            android:text="빨간 꽃이여 찬란하게 빛나네\n폴리네시아의 이국적인 향으로\n스노우 화이트와 퍼플 레인의 따스한 꽃\n보잉보잉한 꽃잎으로 끝없이 싱그러워보이네\n\n축제의 계절인것 같아\n따스한 빛을 뿜고 우리를 찾아왔으니\n터키를 비롯한 바닷가의 휴양지에서\n꿈꾸던 보복정신을 이루어주네\n\n아름다움과 진실에 대한 신념을 전달하는 너\n태양과 낙엽의 긴 겨울을 기다리던 내 마음을 따뜻하게 해주네\n진한 색상의 파도와 살아남은 잎으로\n영리한 브랜드의 햇살의 제품같아 일구어 낳네\n\n꿈과 희망의 계절에\n주님의 축복과 함께 따르모로 하고\n포인세티아, 네 믿음과 꿈을 향한 선물로\n이 꽃의 빛을 내어 우리를 찾아와주네." />
 
     </LinearLayout>
 
+    </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="-95dp"
         android:orientation="horizontal">
         <ImageButton
             android:id="@+id/btn_rectangle_camera"

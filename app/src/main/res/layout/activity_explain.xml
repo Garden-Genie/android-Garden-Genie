@@ -23,7 +23,7 @@
         android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="'산세베리아' 입니다." />
+        android:text="'포인세티아' 입니다." />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,6 +46,9 @@
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -53,7 +56,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:textSize="20sp"
-            android:text="설명 듣기 화면" />
+            android:text="포인세티아는 12월의 대표적인 꽃으로, 크리스마스 장식과 선물로 많이 사용됩니다. 빨간색 외에도 화이트, 핑크, 오렌지 등 다양한 색상이 있습니다. 미국의 외교관 조엘 로버트스 포인세티아 박사가 이름을 붙였습니다." />
 
     </LinearLayout>
 
