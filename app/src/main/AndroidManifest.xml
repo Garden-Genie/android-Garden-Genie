@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.gardengenie_android">
+
+<!--    <uses-permission android:name="android.permission.CAMERA" />-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <!-- 카메라 사용을 사용자에게 알림 -->
     <uses-feature
         android:name="android.hardware.camera"
@@ -38,6 +44,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PhotoResultActivity" />
+        <activity android:name=".ExplainActivity" />
+        <activity android:name=".MusicActivity" />
+        <activity android:name=".PoemActivity" />
+        <activity android:name=".ConditionActivity" />
     </application>
 
 </manifest>

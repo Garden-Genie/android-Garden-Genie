@@ -1,68 +1,98 @@
 package com.example.gardengenie_android;
 
+
+import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.provider.MediaStore;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
+
+import me.relex.circleindicator.CircleIndicator;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn_picture;
-    private ImageView imageView;
+    FragmentPagerAdapter adapterViewPager;
 
-    private static final int REQUEST_IMAGE_CODE = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        imageView = findViewById(R.id.imageView);
-        btn_picture = findViewById(R.id.btn_picture);
+// develop
+        ViewPager vpPager = (ViewPager) findViewById(R.id.viewpager);
+        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
+        vpPager.setAdapter(adapterViewPager);
 
-        //화면 전환용
+        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
+        indicator.setViewPager(vpPager);
+// =======
+//         imageView = findViewById(R.id.imageView);
+//         btn_picture = findViewById(R.id.btn_picture);
 
-        Button button = findViewById(R.id.initial_intent);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), InitialActivity.class);
-                startActivity(intent);
-            }
-        });
+//         //화면 전환용
 
-        btn_picture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                takePicture();
-            }
-        });
+//         Button button = findViewById(R.id.initial_intent);
+//         button.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View view) {
+//                 Intent intent = new Intent(getApplicationContext(), InitialActivity.class);
+//                 startActivity(intent);
+//             }
+//         });
+
+//         btn_picture.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View v) {
+//                 takePicture();
+//             }
+//         });
+// master
     }
 
-    //사진 찍기
-    public void takePicture() {
-        Intent imageTakeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    // view pager
+    public static class MyPagerAdapter extends FragmentPagerAdapter {
+        private static int NUM_ITEMS = 3;
+        public MyPagerAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+        }
 
-        if (imageTakeIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(imageTakeIntent, REQUEST_IMAGE_CODE);
+        // Returns total number of pages
+        @Override
+        public int getCount() {
+            return NUM_ITEMS;
+        }
+
+        // Returns the fragment to display for that page
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return LeftFragment.newInstance(0, "Left");
+                case 1:
+                    return MainFragment.newInstance(1, "Main");
+                case 2:
+                    return RightFragment.newInstance(2, "Right");
+                default:
+                    return null;
+            }
+        }
+
+        // Returns the page title for the top indicator
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return "Page " + position;
         }
     }
 
-    //결과값 가져오기
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CODE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            imageView.setImageBitmap(imageBitmap);
-        }
-    }
+
 }
