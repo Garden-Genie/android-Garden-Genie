@@ -133,7 +133,7 @@ public class MainFragment extends Fragment {
     // GCS 버킷 이름
     private static final String BUCKET_NAME = "garden_genie_image";
     // GCS 인증 정보 파일 이름
-    private static final String fileName = "garden-genie-de5ba7f29f1e.json";
+    private static final String fileName = "garden-genie-b3c4d94d7071.json";
 
     // 이미지를 Google Cloud Storage에 업로드하는 메소드
     private void uploadImageToStorage(Bitmap imageBitmap) {
