@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btn_camera;
     private ImageView imageView;
     private Bitmap imageBitmap;
-    private byte[] imageBytes;
 
     private static final int REQUEST_IMAGE_CODE = 101;
 
@@ -85,16 +84,6 @@ public class MainActivity extends AppCompatActivity {
             new UploadTask().execute();
             Log.d("MainActivity", "이미지를 Google Cloud Storage에 업로드했습니다.");
 
-//            // Flask 서버로 이미지 전송을 위해
-//            // 이미지를 JPEG 형식으로 압축하여 바이트 배열로 변환
-//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-//            imageBytes = baos.toByteArray();
-//
-//            // HTTP 요청 생성 후 Flask 서버로 전송
-//            new NetworkTask().execute();
-
-
         }
         else {
             // 사진 촬영이 실패하거나 사용자가 취소한 경우에 대한 처리
@@ -117,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     // GCS 버킷 이름
     private static final String BUCKET_NAME = "garden_genie_image";
     // GCS 인증 정보 파일 이름
-    private static final String fileName = "garden-genie-de5ba7f29f1e.json";
+    private static final String fileName = "garden-genie-b3c4d94d7071.json";
 
     // 이미지를 Google Cloud Storage에 업로드하는 메소드
     private void uploadImageToStorage(Bitmap imageBitmap) {
@@ -147,11 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
             // 업로드된 이미지의 URL 가져오기
             String imageUrl = blob.getMediaLink();
-            System.out.println("이미지 url : " + imageUrl);
-
-            // 이미지 URL을 flask로 전송
-            sendImageUrlToFlask(imageUrl);
-
+            Log.d("MainActivity", "이미지 URL : " + imageUrl);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -166,91 +151,6 @@ public class MainActivity extends AppCompatActivity {
         return stream.toByteArray();
     }
 
-    // 이미지 URL을 flask 서버로 전송하는 메서드
-    private void sendImageUrlToFlask(String imageUrl) {
-        try {
-            // TODO: your-local-ip-address를 로컬 IP 주소(ipconfig)로 교체한 후 실행
-            // Flask 서버 엔드포인트 URL
-            String url = "http://your-local-ip-address/upload_image_url";
 
-            // HttpURLConnection 설정
-            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setDoOutput(true);
-
-            // JSON 데이터 생성
-            String json = "{\"image_url\": \"" + imageUrl + "\"}";
-
-            // JSON 데이터 전송
-            OutputStream outputStream = connection.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
-            writer.write(json);
-            writer.flush();
-            writer.close();
-            outputStream.close();
-
-            // 서버로부터의 응답 확인
-            int responseCode = connection.getResponseCode();
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                // 전송 성공
-                Log.d("MainActivity", "Flask 이미지 URL 전송이 성공했습니다.");
-            } else {
-                // 전송 실패
-                Log.d("MainActivity", "Flask 이미지 URL 전송이 실패했습니다.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-//    private class NetworkTask extends AsyncTask<Void, Void, Void> {
-//        @Override
-//        protected Void doInBackground(Void... voids) {
-//            // 네트워크 작업 수행 (백그라운드 작업)
-//            try {
-//                // TODO: your-local-ip-address를 로컬 IP 주소(ipconfig)로 교체한 후 실행
-//                URL url = new URL("http:// .. ");
-//
-//                // HTTP 연결 설정
-//                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//                conn.setDoOutput(true);
-//                conn.setRequestMethod("POST");
-//                conn.setRequestProperty("Content-Type", "image/jpeg");
-//                conn.setRequestProperty("Content-Length", String.valueOf(imageBytes.length));
-//
-//                // 이미지 데이터 전송
-//                OutputStream os = conn.getOutputStream();
-//                os.write(imageBytes);
-//                os.flush();
-//                os.close();
-//
-//                // 서버 응답 코드
-//                int responseCode = conn.getResponseCode();
-//                System.out.println("Flask 서버 응답 코드: " + responseCode);
-//
-//                // 응답이 성공적으로 처리되었을 경우 (= 이미지 전송 성공)
-//                if (responseCode == HttpURLConnection.HTTP_OK) {
-//                    Log.d("MainActivity", "응답이 성공하였습니다.");
-//                }
-//                // 응답이 실패한 경우 (= 이미지 전송 실패)
-//                else {
-//                    Log.d("MainActivity", "응답이 실패하였습니다.");
-//                }
-//            } catch (IOException e) {
-//                // 예외 처리 코드 작성
-//                e.printStackTrace();
-//            }
-//            return null;
-//        }
-//        // 백그라운드 작업 완료 후 자동 호출
-//        @Override
-//        protected void onPostExecute(Void aVoid) {
-//            super.onPostExecute(aVoid);
-//            // 네트워크 작업 완료 후 실행할 코드 작성
-//            Log.d("MainActivity", "네트워크 작업이 완료되었습니다.");
-//        }
-//    }
 
 }
