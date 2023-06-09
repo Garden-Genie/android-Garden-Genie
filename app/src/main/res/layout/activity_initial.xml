@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InitialActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="가든 지니에 가입하세요"
+            android:textAlignment="center"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/black"
+            android:textSize="32dp"
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="가든스토리를 이용하기 위해서는
+            회원가입이 필요합니다."
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:textColor="@color/black">
+        </TextView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp">
+
+            <android.widget.Button
+                android:id="@+id/initial_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/round_button"
+                android:paddingLeft="80dp"
+                android:paddingTop="60dp"
+                android:paddingRight="80dp"
+                android:paddingBottom="60dp"
+                android:text="회원가입"
+                android:textColor="@color/black"
+                android:textSize="30sp"/>
+
+            <android.widget.Button
+                android:id="@+id/initial_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:text="로그인"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                android:paddingBottom="40dp"
+                android:paddingTop="40dp"
+                android:background="@drawable/round_button2"
+                >
+
+            </android.widget.Button>
+
+            <android.widget.Button
+                android:id="@+id/initial_nosignup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/round_button"
+                android:paddingTop="40dp"
+                android:paddingBottom="40dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp"
+                android:text="회원가입 없이 간단하게 사용하겠습니다."
+                android:textColor="@android:color/black"
+                android:textSize="27sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>

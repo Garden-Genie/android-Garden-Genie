@@ -28,12 +28,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+// develop
         ViewPager vpPager = (ViewPager) findViewById(R.id.viewpager);
         adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
 
         CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(vpPager);
+// =======
+//         imageView = findViewById(R.id.imageView);
+//         btn_picture = findViewById(R.id.btn_picture);
+
+//         //화면 전환용
+
+//         Button button = findViewById(R.id.initial_intent);
+//         button.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View view) {
+//                 Intent intent = new Intent(getApplicationContext(), InitialActivity.class);
+//                 startActivity(intent);
+//             }
+//         });
+
+//         btn_picture.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View v) {
+//                 takePicture();
+//             }
+//         });
+// master
     }
 
     // view pager
