@@ -48,16 +48,8 @@ public class SignupActivity extends AppCompatActivity {
                         && name.length() != 0 && pwd.length() >= 8) {
                     SignupRequest signupRequest = new SignupRequest(id, name, pwd, email);
 
-<<<<<<< HEAD
-                    retrofit = new Retrofit.Builder()
-                            .baseUrl("baseurl") //ip + 포트번호
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .build();
-=======
                     retrofitClient = RetrofitClient.getInstance();
                     postApi = RetrofitClient.getRetrofitInterface();
->>>>>>> 8b46996 ([fix] fix signup with JWT)
-
 
                     Call<User> call = postApi.createPost(signupRequest);
 
@@ -96,8 +88,3 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 8b46996 ([fix] fix signup with JWT)

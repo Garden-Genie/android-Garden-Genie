@@ -9,7 +9,7 @@ public class RetrofitClient {
     private static RetrofitClient instance = null;
     private static PostApi postApi;
     //사용하고 있는 서버 BASE 주소
-    private static String baseUrl = "http://192.168.0.129:8070";
+    private static String baseUrl = "http://172.30.1.73:8070";
 
 
 

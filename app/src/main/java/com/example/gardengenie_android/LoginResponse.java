@@ -7,7 +7,7 @@ public class LoginResponse {
     @SerializedName("result")
     public String resultCode;
 
-    @SerializedName("access_token")
+    @SerializedName("token")
     public String token;
 
     @SerializedName("staff")

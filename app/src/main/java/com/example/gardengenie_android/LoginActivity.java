@@ -2,6 +2,7 @@ package com.example.gardengenie_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -66,15 +67,24 @@ public class LoginActivity extends AppCompatActivity {
                     String resultCode = result.getResultCode();
                     
                     String token = result.getToken();
+                    Log.d("token", result.getToken());
                     String success = "200";
                     String errorPw = "400";
                     String errorID = "300";
                     
-                    if (resultCode.equals(success)){
+                    if (token != null){
                         setPreference(token, token);
+                        Toast.makeText(LoginActivity.this, userID + "님 환영합니다.", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(intent);
                     }
 
-                    Toast.makeText(LoginActivity.this, userID + "님 환영합니다.", Toast.LENGTH_LONG).show();
+                    else {
+                        Toast.makeText(LoginActivity.this, "아이디 혹은 비밀번호를 확인하십시오.", Toast.LENGTH_LONG).show();
+                    }
+
+
+
 
                 }
             }

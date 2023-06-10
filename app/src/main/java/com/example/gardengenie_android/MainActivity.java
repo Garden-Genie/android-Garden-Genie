@@ -1,11 +1,20 @@
 package com.example.gardengenie_android;
 
 
+
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+
+import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.Nullable;
@@ -15,82 +24,79 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 
+import java.util.Locale;
+
 import me.relex.circleindicator.CircleIndicator;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener{
 
-    FragmentPagerAdapter adapterViewPager;
-
+    private TextToSpeech tts;
+    private Button initial_signup, initial_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_initial);
 
-// develop
-        ViewPager vpPager = (ViewPager) findViewById(R.id.viewpager);
-        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
-        vpPager.setAdapter(adapterViewPager);
+        tts = new TextToSpeech(this, this);
 
-        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
-        indicator.setViewPager(vpPager);
-// =======
-//         imageView = findViewById(R.id.imageView);
-//         btn_picture = findViewById(R.id.btn_picture);
 
-//         //화면 전환용
 
-//         Button button = findViewById(R.id.initial_intent);
-//         button.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View view) {
-//                 Intent intent = new Intent(getApplicationContext(), InitialActivity.class);
-//                 startActivity(intent);
-//             }
-//         });
+        initial_login = findViewById(R.id.initial_login);
+        initial_signup = findViewById(R.id.initial_signup);
+        initial_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), TestActivity.class);
+//                startActivity(intent);
 
-//         btn_picture.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View v) {
-//                 takePicture();
-//             }
-//         });
-// master
+                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        initial_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
-    // view pager
-    public static class MyPagerAdapter extends FragmentPagerAdapter {
-        private static int NUM_ITEMS = 3;
-        public MyPagerAdapter(FragmentManager fragmentManager) {
-            super(fragmentManager);
-        }
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void speakOut(){
+        CharSequence text = "가든지니를 이용하기 위해서는 회원가입이 필요합니다. 회원가입을 하시려면 상단 버튼, 로그인을 하시려면 중간 버튼, 비회원으로 이용하시려면 하단 버튼을 클릭해주시거나 원하시는 기능을 말씀해주세요. ";
+        tts.setPitch((float) 0.6);
+        tts.setSpeechRate((float) 0.1);
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "id1");
+    }
 
-        // Returns total number of pages
-        @Override
-        public int getCount() {
-            return NUM_ITEMS;
+    @Override
+    protected void onDestroy() {
+        if(tts!=null){
+            tts.stop();
+            tts.shutdown();
         }
+        super.onDestroy();
+    }
 
-        // Returns the fragment to display for that page
-        @Override
-        public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
-                    return LeftFragment.newInstance(0, "Left");
-                case 1:
-                    return MainFragment.newInstance(1, "Main");
-                case 2:
-                    return RightFragment.newInstance(2, "Right");
-                default:
-                    return null;
+    @Override
+    public void onInit(int i) {
+        if(i == TextToSpeech.SUCCESS){
+            int result = tts.setLanguage(Locale.KOREA);
+
+            if(result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
+                Log.e("TTS", "This");
+            }else{
+                speakOut();
             }
         }
 
-        // Returns the page title for the top indicator
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return "Page " + position;
+        else {
+            Log.e("TTS", "failed");
         }
     }
 
