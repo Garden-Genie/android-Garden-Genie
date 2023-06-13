@@ -67,6 +67,10 @@ public class LoginActivity extends AppCompatActivity {
                     String resultCode = result.getResultCode();
                     
                     String token = result.getToken();
+                    //==
+//                    LoginResponse loginResponse = new LoginResponse();
+//                    loginResponse.setToken(token);
+                    //==
                     Log.d("token", result.getToken());
                     String success = "200";
                     String errorPw = "400";

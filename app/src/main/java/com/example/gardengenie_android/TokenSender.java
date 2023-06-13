@@ -13,7 +13,7 @@ import java.net.URL;
 
 public class TokenSender {
     private static final String TAG = "TokenSender";
-    private static final String SERVER_URL = "http://192.168.0.135:5000/analyze";
+    private static final String SERVER_URL = "http://192.168.45.97:8070/analyze";
     private static final String AUTH_HEADER = "Authorization";
 
     public static void sendToken(String token, String imgurl) {
