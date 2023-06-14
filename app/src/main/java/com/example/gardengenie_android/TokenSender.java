@@ -14,8 +14,8 @@ import java.net.URL;
 public class TokenSender {
     private static final String TAG = "TokenSender";
 
-    // TODO : your-server-url
-    private static final String SERVER_URL = "http://your-server-url:8070/analyze";
+    // TODO : flask-server-url
+    private static final String SERVER_URL = "http://flask-server-url";
     private static final String AUTH_HEADER = "Authorization";
 
     public static void sendToken(String token, String imgurl) {

@@ -37,6 +37,10 @@ public class ConditionActivity extends AppCompatActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
 
+        String plantName = PlantName.getPlantName();
+        TextView textPltName = (TextView) findViewById(R.id.text_pltName);
+        textPltName.setText(plantName);
+
         byte[] byteArray = getIntent().getByteArrayExtra("image");
         Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         imageView.setImageBitmap(bitmap);
@@ -55,10 +59,10 @@ public class ConditionActivity extends AppCompatActivity {
         String token = tokenInstance.getToken();
         if (token != null) {
             // token 값
-            Log.d("MusicActivity", "token 값 : " + token);
+            Log.d("ConditionActivity", "token 값 : " + token);
         } else {
             // token이 null인 경우
-            Log.e("MusicActivity", "token 값이 null 입니다.");
+            Log.e("ConditionActivity", "token 값이 null 입니다.");
         }
     }
 

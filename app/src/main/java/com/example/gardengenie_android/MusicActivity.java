@@ -37,6 +37,10 @@ public class MusicActivity extends AppCompatActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
 
+        String plantName = PlantName.getPlantName();
+        TextView textPltName = (TextView) findViewById(R.id.text_pltName);
+        textPltName.setText(plantName);
+
         byte[] byteArray = getIntent().getByteArrayExtra("image");
         Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         imageView.setImageBitmap(bitmap);

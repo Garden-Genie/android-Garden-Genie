@@ -37,12 +37,16 @@ public class ExplainActivity extends AppCompatActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
 
+        String plantName = PlantName.getPlantName();
+        TextView textPltName = (TextView) findViewById(R.id.text_pltName);
+        textPltName.setText(plantName);
+
         byte[] byteArray = getIntent().getByteArrayExtra("image");
         Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         imageView.setImageBitmap(bitmap);
 
         // TODO : your-server-url
-        String serverUrl = "http://your-server-url:8070/chat-gpt/question/name";
+        String serverUrl = "http://your-server-url:8070/chat-gpt/question/explain";
 
         // spring 서버 통신
         HttpRequest httpRequest = new HttpRequest();
@@ -55,10 +59,10 @@ public class ExplainActivity extends AppCompatActivity {
         String token = tokenInstance.getToken();
         if (token != null) {
             // token 값
-            Log.d("MusicActivity", "token 값 : " + token);
+            Log.d("ExplainActivity", "token 값 : " + token);
         } else {
             // token이 null인 경우
-            Log.e("MusicActivity", "token 값이 null 입니다.");
+            Log.e("ExplainActivity", "token 값이 null 입니다.");
         }
     }
 

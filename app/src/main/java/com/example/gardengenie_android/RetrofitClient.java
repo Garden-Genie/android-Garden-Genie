@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
     private static RetrofitClient instance = null;
     private static PostApi postApi;
-    // TODO : 사용하고 있는 서버 BASE 주소
+    // TODO : your-server-url
     private static String baseUrl = "http://your-server-url:8070";
 
 
