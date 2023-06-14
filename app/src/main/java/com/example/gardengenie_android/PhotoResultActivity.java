@@ -52,8 +52,7 @@ public class PhotoResultActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         imageView.setImageBitmap(bitmap);
 
-        // TODO : your-server-url
-        String serverUrl = "http://your-server-url:8070/chat-gpt/question/name";
+        String serverUrl = BaseUrl.BASE_URL + "/chat-gpt/question/name";
 
         // spring 서버 통신
         HttpRequest httpRequest = new HttpRequest();

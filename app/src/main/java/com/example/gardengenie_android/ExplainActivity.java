@@ -45,8 +45,7 @@ public class ExplainActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         imageView.setImageBitmap(bitmap);
 
-        // TODO : your-server-url
-        String serverUrl = "http://your-server-url:8070/chat-gpt/question/explain";
+        String serverUrl = BaseUrl.BASE_URL + "/chat-gpt/question/explain";
 
         // spring 서버 통신
         HttpRequest httpRequest = new HttpRequest();

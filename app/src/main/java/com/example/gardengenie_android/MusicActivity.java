@@ -45,8 +45,7 @@ public class MusicActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         imageView.setImageBitmap(bitmap);
 
-        // TODO : your-server-url
-        String serverUrl = "http://your-server-url:8070/chat-gpt/question/music";
+        String serverUrl = BaseUrl.BASE_URL + "/chat-gpt/question/music";
 
         // spring 서버 통신
         HttpRequest httpRequest = new HttpRequest();
