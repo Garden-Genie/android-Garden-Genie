@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "garden-genie",
+  "private_key_id": "b3c4d94d70716ef3b530052ca6d2356788f2e57c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCMqNE7yE6pX3dQ\n2oWuaZQch1dKUQTl2B7ikGLW+kKWTAYLN6vIEzPkXP7l77r0c3WP8sHmluJA00id\nKpuaxTj1scfRplgVNGdqoyqxvEnmaAXUIXDWsYktAw/eflDG6+d8Yj1usiYHtMTy\nqp04nfaEiARC28pqGesmyIY88Uq4O55Cw4sD4WWhudVkdVpn4pg/qnAiKUni7w/Y\n/6YauMr0A8WDD2mAGLwcrGnjJhln/9x1BXPHm8eCB2EGbgP0e3sRF+1HhWiddbtZ\noKrvAdxfLwE1zSkjPdeV4yRvZgwiC0ZLeTVOgK4vThOYcERiQoM+qStaFpK3Jpj9\npRNd3Od7AgMBAAECggEAA/GZyDjSB8qu8DvoQp8gMXqT9nf2ELGyD/0nYEqtAkTI\naJkbfmUXb+Axn2XM0pzIH4yZZis11cZ2wz1WFo1QDwd4iEbHMnUBL0q64DfcxJKH\nE08KuGJK69GpqL3W6vTjTSf9+/QPv+iQGxOwi81WA5pCsFM0RixK3RADP4MuaqLq\npE/ki13EyKgxucYjv7lKMc+hFOCPaRDrC/SjHm2kxD+AE7ilMAWclEWwJpT17bwQ\nVBkxQ8SeE1jQNgl7rSu+jyYUFb+Ae/jb77MukNIvAGNRLqk6sxjwktu7CTdUnSdb\nJgN90cALo4UOUC/sYYmEsck22iCIqjJRk2Fg7Q1w4QKBgQDDUAQXpOdZ6E0WIUSm\nPo4rlDAUTrPbGikT6hMjnf4LzQ1BdXY79jCvvchlOCkfGvcp4mP0edfIkGDzG/8m\n6bWs57r3jxEVBZ4eMM5V8eKQAKerrhtHMlQJuCZIX2llX+dUbPYS49gKuweVtp3B\ny+Kri+KCTXBnHWuU4b83hvfDGwKBgQC4XXZCFdwkC8QMGgo/keJDasnbBia/J3cL\nNNY1S4NXBpqE/1tVJuDKI+vUtE6eHRvqNVp2mg9AFLRaboz/FZS7k8jCwPDYk9Lj\nyU0sy2uH6yClSyw5hxSfA2GesxRKLr6MLxbWLNHSrKw36OUHtoBpPrxDBRJzY0JB\n8G++GrFTIQKBgGT6SpNa2429L5Wgb5ivwNtBCzaEljJSLSixnWGNvpmlUxQjwZQw\nrW0+5ouGZKRDUcQi2uC72ddE5grqz5jzvcz+Jcj1+7PtqpkbTKJco3EmFYoKQuol\nWBOKVKiYQ6p40eXxS6vqhnjNx5ccyiU23yMn+Fy74sA9ErDvoef4bMI/AoGACmrF\nftBrYuIDTse94n+ksDh9dVGwqMZbFJgErng40Jb/7hnbmEEdHG7RKXCSrJ5qcF5Z\nYTAtQmqpEh8C+nrGr56XDmIGecZIeTRrludbiQ+BBbXspsd6I832Gxh1QgfIHnWe\nrbVUmbnF9VbEch4evVOdIZBMzZZDLSSfu7cYY+ECgYEAlV+X3qw4UPjMgeZURYQH\ngQr3rXuUysoDRxSZwu6MqUn++/Oo1EtB7RQ/9ymHOwAfEEUDZQhpnPR8rpDTiaBm\nYaqfv2mLwZQpW5ZO0nii5CmltaOwbYU9cAsWpgV05O25Dxuat7StPYxX7F2qG0rk\nuSRI3jfVP6oWg1BzaGeL66Y=\n-----END PRIVATE KEY-----\n",
+  "client_email": "garden-genie-service@garden-genie.iam.gserviceaccount.com",
+  "client_id": "103327410268228998635",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/garden-genie-service%40garden-genie.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
