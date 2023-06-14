@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.ViewGroup;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -27,6 +29,8 @@ public class HomeActivity extends AppCompatActivity {
 
         CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(vpPager);
+
+        vpPager.setCurrentItem(1);
 
     }
 
