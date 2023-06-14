@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private RetrofitClient retrofitClient;
     private PostApi postApi;
+    private Token tokenInstance;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +70,11 @@ public class LoginActivity extends AppCompatActivity {
                     String resultCode = result.getResultCode();
                     
                     String token = result.getToken();
-                    //==
-//                    LoginResponse loginResponse = new LoginResponse();
-//                    loginResponse.setToken(token);
-                    //==
+
+                    // Token 클래스에 token 값 저장
+                    tokenInstance = Token.getInstance();
+                    tokenInstance.setToken(token);
+
                     Log.d("token", result.getToken());
                     String success = "200";
                     String errorPw = "400";

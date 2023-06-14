@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ConditionActivity extends AppCompatActivity {
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private TextView textCondition;
+    private Token tokenInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,17 @@ public class ConditionActivity extends AppCompatActivity {
         httpRequest.execute(serverUrl);
 
         textCondition = (TextView) findViewById(R.id.text_condition);
+
+        // Token 클래스에서 token get
+        tokenInstance = Token.getInstance();
+        String token = tokenInstance.getToken();
+        if (token != null) {
+            // token 값
+            Log.d("MusicActivity", "token 값 : " + token);
+        } else {
+            // token이 null인 경우
+            Log.e("MusicActivity", "token 값이 null 입니다.");
+        }
     }
 
     private class HttpRequest extends AsyncTask<String, Void, String> {
@@ -61,6 +73,7 @@ public class ConditionActivity extends AppCompatActivity {
             try {
                 Request request = new Request.Builder()
                         .url(url)
+                        .addHeader("Authorization", "Bearer " + tokenInstance.getToken())
                         .post(RequestBody.create("", JSON))  // 빈 요청 바디 생성
                         .build();
 
