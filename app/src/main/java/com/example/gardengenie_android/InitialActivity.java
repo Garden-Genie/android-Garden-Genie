@@ -2,6 +2,7 @@ package com.example.gardengenie_android;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.os.Build;
@@ -31,11 +32,9 @@ public class InitialActivity extends AppCompatActivity implements TextToSpeech.O
         initial_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), TestActivity.class);
-//                startActivity(intent);
-
                 Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
                 startActivity(intent);
+                ActivityCompat.finishAffinity(InitialActivity.this);
             }
         });
 
@@ -44,6 +43,7 @@ public class InitialActivity extends AppCompatActivity implements TextToSpeech.O
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
+                ActivityCompat.finishAffinity(InitialActivity.this);
             }
         });
 

@@ -1,6 +1,7 @@
 package com.example.gardengenie_android;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -53,7 +54,7 @@ public class SignupActivity extends AppCompatActivity {
 
                     Call<User> call = postApi.createPost(signupRequest);
 
-                    Toast.makeText(getApplicationContext(), "회원가입이 원료되었습니다.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다.", Toast.LENGTH_LONG).show();
 
                     call.enqueue(new Callback<User>() {
                         @Override
@@ -74,6 +75,7 @@ public class SignupActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
+                    ActivityCompat.finishAffinity(SignupActivity.this);
 
 
 

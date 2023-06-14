@@ -37,8 +37,7 @@ public class LeftFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_left, container, false);
-        EditText tvLabel = (EditText) view.findViewById(R.id.editText);
-//        tvLabel.setText(page + " -- " + title);
+
         return view;
     }
 }
